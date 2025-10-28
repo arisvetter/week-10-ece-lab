@@ -1,19 +1,12 @@
 module multiplexer(
-    input [1:0] sel,
+    input [1:0] Sel,
     input reg [7:0] A,
     input reg [7:0] B,
     input reg [7:0] C,
-    input reg [7:0] D
-    output [7:0] data,
+    input reg [7:0] D,
+    output [7:0] data
 );
 
-    always @(*) begin 
-        case(sel)
-            2'b00: {D, C, B, A} <= {8'b0, 8'b0, 8'b0, data}; 
-            2'b01: {D, C, B, A} <= {8'b0, 8'b0, data, 8'b0};
-            2'b10: {D, C, B, A} <= {8'b0, data, 8'b0, 8'b0};
-            2'b11: {D, C, B, A} <= {data, 8'b0, 8'b0, 8'b0};
-        endcase
-    end
+(~Sel[0] & ~Sel[1])? A: (Sel[0] & ~Sel[1])? B: (~Sel[0] &  Sel[1])? C : (Sel[0] &  Sel[1])? D:0000
 
 endmodule
