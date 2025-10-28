@@ -14,6 +14,7 @@ In this lab, you learned about the basic building block of sequential circuits: 
 ## Lab Questions
 
 ###  Why can we not just use structural Verilog to implement latches?
+Latches are built around continous assignment, and structural Verilog is built around pre-defined variables and outputs. Unless we specifically tell Verilog that a variable is receiving continuous assignment, the program will treat it as a loop condition and be very unhappy.
 
 ### What is the meaning of always @(*) in a sensitivity block?
 
