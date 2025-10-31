@@ -40,6 +40,7 @@ address to the LEDs.
 Latches are built around continuous assignment, and structural Verilog is built around pre-defined variables and outputs. Verilog by default will see continuous assignment as a looping-type condition and generate a fault and/or do something else weird. By specifically telling Vivado we are creating variables with "unknown" states, we avoid any case where the program doesn't compile properly.
 
 ### What is the meaning of always @(*) in a sensitivity block?
+"always @(*)" is telling Vivado to re-evaluate the block statement whenever a signal inside the block changes. In our case, this statement was used to allow internal values to change withoutout immediate assignment. The values would only update when our enable signal was changed, essentially replacing the need for a clock cycle signal 
 
 ### What importance is memory to digital circuits?
 Memory allows for sequential programs, where we can actually keep 
