@@ -42,3 +42,8 @@ Latches are built around continuous assignment, and structural Verilog is built 
 ### What is the meaning of always @(*) in a sensitivity block?
 
 ### What importance is memory to digital circuits?
+Memory allows for sequential programs, where we can actually keep 
+variable assignments in the enviroment and reference those variables 
+for their current values.
+This is fundamental to programming languages, allowing for actual 
+complex software beyond simple one line calculations!
